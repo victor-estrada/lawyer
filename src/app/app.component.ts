@@ -27,7 +27,9 @@ import { Component } from '@angular/core';
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<div class="container-fluid">
   <router-outlet></router-outlet>
+</div>
   `
 })
 export class AppComponent {
