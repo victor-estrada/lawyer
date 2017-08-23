@@ -7,11 +7,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
+import { ContactService } from './contacts/contact.service';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   { path: 'dashboard',    component: DashboardComponent },
-  { path: 'contact/:id',  component: ContactDetailsComponent },
+  { path: 'contacts/:id',  component: ContactDetailsComponent },
   {
     path: 'contacts',
     component: ContactListComponent,
@@ -36,7 +37,9 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    ContactService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">{{title}}</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,5 +33,5 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Lawyer';
 }
