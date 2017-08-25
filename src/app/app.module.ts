@@ -12,7 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   { path: 'dashboard',    component: DashboardComponent },
-  { path: 'contacts/:id',  component: ContactDetailsComponent },
+  { path: 'contact-details/:id',  component: ContactDetailsComponent },
   {
     path: 'contacts',
     component: ContactListComponent,
