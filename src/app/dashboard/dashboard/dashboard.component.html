@@ -1,8 +1,22 @@
-<h3>Your Contacts</h3>
-<div class="grid grid-pad">
-  <div *ngFor="let hero of heroes" class="col-1-4">
-    <div class="module hero">
-      <h4>{{contact.name}}</h4>
-    </div>
+<div class="row">
+  <div class="col-md-5">
+    <h2>Contacts</h2>
+    <ul class="list-group">
+      <li class="list-group-item"
+        *ngFor="let contact of contacts"
+        (click)="selectContact(contact)"
+        [class.active]="contact === selectedContact">
+        {{contact.name}}
+      </li>
+    </ul>
+    <button class="btn btn-warning" (click)="createNewContact()">New</button>
+  </div>
+  <div class="col-md-5 col-md-offset-2">
+    <contact-details
+      [contact]="selectedContact"
+      [createHandler]="addContact"
+      [updateHandler]="updateContact"
+      [deleteHandler]="deleteContact">
+    </contact-details>
   </div>
 </div>
