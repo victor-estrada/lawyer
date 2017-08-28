@@ -9,10 +9,12 @@ import { ContactDetailsComponent } from './contacts/contact-details/contact-deta
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { ContactService } from './contacts/contact.service';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { HomepageBannerComponent } from './homepage/homepage-banner/homepage-banner.component';
 
 const appRoutes: Routes = [
   { path: 'dashboard',    component: DashboardComponent },
   { path: 'contact-details/:id',  component: ContactDetailsComponent },
+  { path: '', component: HomepageBannerComponent },
   {
     path: 'contacts',
     component: ContactListComponent,
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     ContactDetailsComponent,
     ContactListComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomepageBannerComponent
   ],
   imports: [
     RouterModule.forRoot(
