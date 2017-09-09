@@ -10,16 +10,23 @@ import { ContactListComponent } from './contacts/contact-list/contact-list.compo
 import { ContactService } from './contacts/contact.service';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { HomepageBannerComponent } from './homepage/homepage-banner/homepage-banner.component';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserService } from './users/user.service';
 
 const appRoutes: Routes = [
   { path: 'dashboard',    component: DashboardComponent },
-  { path: 'contact-details/:id',  component: ContactDetailsComponent },
   { path: '', component: HomepageBannerComponent },
   {
     path: 'contacts',
     component: ContactListComponent,
     data: { title: 'Contact List' }
   },
+  {
+    path: 'users',
+    component: UserListComponent,
+    data: { title: 'User List' }
+  }
 
 ];
 
@@ -29,7 +36,9 @@ const appRoutes: Routes = [
     ContactDetailsComponent,
     ContactListComponent,
     DashboardComponent,
-    HomepageBannerComponent
+    HomepageBannerComponent,
+    UserDetailsComponent,
+    UserListComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -41,7 +50,8 @@ const appRoutes: Routes = [
     HttpModule
   ],
   providers: [
-    ContactService
+    ContactService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
