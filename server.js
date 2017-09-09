@@ -139,31 +139,31 @@ app.delete("/api/contacts/:id", function(req, res) {
   });
 });
 
-/*  "/api/contacts"
- *    GET: finds all contacts
- *    POST: creates a new contact
+/*  "/api/users"
+ *    GET: finds all users
+ *    POST: creates a new user
  */
 
-app.get("/api/contacts", function(req, res) {
-  db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
+app.get("/api/users", function(req, res) {
+  db.collection(USERS_COLLECTION).find({}).toArray(function(err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
+      handleError(res, err.message, "Failed to get users.");
     } else {
       res.status(200).json(docs);
     }
   });
 });
 
-app.post("/api/contacts", function(req, res) {
-  var newContact = req.body;
+app.post("/api/users", function(req, res) {
+  var newUser = req.body;
 
   if (!req.body.name) {
     handleError(res, "Invalid user input", "Must provide a name.", 400);
   }
 
-  db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
+  db.collection(USERS_COLLECTION).insertOne(newUser, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to create new contact.");
+      handleError(res, err.message, "Failed to create new user.");
     } else {
       res.status(201).json(doc.ops[0]);
     }
@@ -210,36 +210,12 @@ app.delete("/api/users/:id", function(req, res) {
   });
 });
 
-
-/*  "/api/users"
- *    GET: finds all users
- *    POST: creates a new user
- */
-
-app.get("/api/users", function(req, res) {
-  db.collection(USERS_COLLECTION).find({}).toArray(function(err, docs) {
-    if (err) {
-      handleError(res, err.message, "Failed to get users.");
-    } else {
-      res.status(200).json(docs);
-    }
-  });
-});
-
-app.post("/api/users", function(req, res) {
-  var newUser = req.body;
-
-  if (!req.body.name) {
-    handleError(res, "Invalid user input", "Must provide a name.", 400);
+app.get('/dashboard', function(req, res) {
+  if (err) {
+    handleError(res, err.message, "Failed to load dashboard");
+  } else {
+    res.status(200).json(req.params.id);
   }
-
-  db.collection(USERS_COLLECTION).insertOne(newUser, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to create new user.");
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
 });
 
 app.post('/dashboard',
