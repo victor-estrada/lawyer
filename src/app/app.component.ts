@@ -23,6 +23,7 @@ import { Component } from '@angular/core';
       <ul class="nav navbar-nav navbar-right">
         <li><a routerLink="/dashboard" routerLinkActive="active">Your Dashboard</a></li>
         <li><a routerLink="/contacts" routerLinkActive="active">The Contacts</a></li>
+        <li><a routerLink="/contacts" routerLinkActive="active">Users</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
